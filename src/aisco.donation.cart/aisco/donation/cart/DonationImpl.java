@@ -1,15 +1,17 @@
 package aisco.donation.cart;
 
 import aisco.donation.core.DonationComponent;
+import aisco.donation.core.DonationDecorator;
 import aisco.program.core.Program;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DonationImpl extends DonationComponent {
+public class DonationImpl extends DonationDecorator {
     private List<CartItem> donationCart;
 
-    public DonationImpl()
+    public DonationImpl(DonationComponent donation)
     {
+        super(donation);
         System.out.println("\nDonation via AISCO Add-to-Cart");
         donationCart = new ArrayList<>();
     }

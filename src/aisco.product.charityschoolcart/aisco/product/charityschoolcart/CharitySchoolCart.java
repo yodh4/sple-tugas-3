@@ -53,7 +53,8 @@ public class CharitySchoolCart {
 
     public static void addDonationCart(List<Program> programs)
     {
-        Donation donate = DonationFactory.createDonation("aisco.donation.cart.DonationImpl");
+        Donation base = DonationFactory.createDonation("aisco.donation.core.DonationImpl");
+        Donation donate = DonationFactory.createDonation("aisco.donation.cart.DonationImpl", base);
         aisco.donation.cart.DonationImpl donationCart = (aisco.donation.cart.DonationImpl) donate;
         donationCart.setDonorInfo("Lila", "lila@jmail.com", "+62812 0000 1111", "Transfer");
         donationCart.addToCart(programs.get(INDEX_SCHOOL), 1500000);
